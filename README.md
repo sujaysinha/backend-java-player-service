@@ -99,3 +99,24 @@ Before you begin, ensure you have the following installed on your development ma
 2. Test API server
 
     - `curl -v --location 'http://localhost:11434/api/generate' --header 'Content-Type: application/json' --data '{"model": "tinyllama","prompt": "why is the sky blue?", "stream": false}'`
+  
+### Run with Gitpod
+
+This app can also be run in Gitpod. We recommend running using Gitpod to build and run this app on the browser. To run this app in Gitpod you will need -
+- Github account
+- Gitpod Classic account
+
+Click on the below link to open this repository in Gitpod
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Intuit-A4A/player-service-python)
+
+- Select the IDE of your choice. We recommend `VSCode IDE in browser`
+- Standard Configuration
+- Click `Continue`
+
+
+<img width="1117" alt="Screenshot 2024-10-23 at 8 29 12 PM" src="https://github.com/user-attachments/assets/5344cb4a-5754-4c92-9fd9-27263e25e00c">
+
+
+
+
