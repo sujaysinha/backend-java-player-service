@@ -6,7 +6,7 @@ Player Service is a lightweight and efficient microservice built using Spring Bo
 <p align="center">
 <a href="#introduction">Introduction</a> &nbsp;&bull;&nbsp;
 <a href="#%EF%B8%8F-setup-instructions">Installation</a> &nbsp;&bull;&nbsp;
-<a href="#documentation">Documentation</a> &nbsp;&bull;&nbsp;
+<a href="#documentation">Documentation</a>
 </p>
 
 # Introduction
