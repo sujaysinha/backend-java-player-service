@@ -71,9 +71,9 @@ Before you begin, ensure you have the following installed on your development ma
     - Download and install from [maven.apache.org](https://maven.apache.org/install.html)
     - Verify installation: `mvn --version`
 
-2 **Docker**
-- Download and install from [docker.com](https://www.docker.com/)
-- Verify installation: `docker --version`
+3. **Docker**
+   - Download and install from [docker.com](https://www.docker.com/)
+   - Verify installation: `docker --version`
 
 
 ### Application setup
