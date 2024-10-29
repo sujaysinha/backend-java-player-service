@@ -3,6 +3,12 @@
 Player Service is a lightweight and efficient microservice built using Spring Boot framework. It serves as a simple way to access player information stored in a `Player.csv` file and makes this data available through a RESTful APIs.
 </p>
 
+<p align="center">
+<a href="#introduction">Introduction</a> &nbsp;&bull;&nbsp;
+<a href="#%EF%B8%8F-setup-instructions">Installation</a> &nbsp;&bull;&nbsp;
+<a href="#documentation">Documentation</a> &nbsp;&bull;&nbsp;
+</p>
+
 # Introduction
 This <b>Player Service</b> app provides simple APIs that serve the contents of `Player.csv`. It contains information regarding Baseball players.
 The contest of `Player.csv` is integrated in in-memory H2 database.
