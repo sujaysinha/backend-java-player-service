@@ -43,7 +43,7 @@ In addition to serving the contents of `Player.csv`. Player service integrates w
 - `/player-service-model` folder contains a dummy AI model for `Player.csv` data.
 
 ## Schema for PLAYERS table
-The database connected to this service is `in-memory H2 Database`.
+The database connected to this service is `in-memory H2 Database`. On application start-up, `PLAYERS` table is created.
 
 Here is the schema for `PLAYERS` table -
 
