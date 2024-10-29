@@ -122,9 +122,9 @@ Response
 ```
 
 7. Run tests:
-   ```
-   mvn clean install
-   ```
+```
+mvn clean install
+```
 
 ### Ollama setup 🦙
 
