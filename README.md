@@ -14,7 +14,7 @@ Player Service is a backend application that serves baseball player data. In add
 
 1. Verify system dependencies
    1. Java 17
-      - Verify installation: `java --version`
+      - Verify installation: `java -version`
    2. Maven
       - Download and install from [maven.apache.org](https://maven.apache.org/install.html)
       - Verify installation, run: `mvn --version`
