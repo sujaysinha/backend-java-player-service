@@ -24,14 +24,13 @@ Player Service is a backend application that serves baseball player data. In add
       - Verify installation, run: `docker --version`
 
 2. Clone this repository or Download the code as zip
-   - run `git clone https://github.com/Intuit-A4A/player-service-java.git`
+   - run `git clone https://github.com/Intuit-A4A/backend-java-player-service.git`
 
 ## Run the application
 
 ### Part 1: Application Dependencies
 
 1. Install application dependencies
-    - Move into the project's root directory, run: `cd player-service-java`.
     - From the project's root directory, run: `mvn clean install -DskipTests`
 
 ### Part 2: Run Player Service (without LLM)
@@ -80,7 +79,7 @@ Player service integrates with Ollama 🦙, which allows us to run LLMs locally.
 
 ### Part 4: Verify Player Service and LLM Integration
 
-1. Ensure Player Service is running
+1. Ensure Player Service is running from previous instructions. If not:
 
     ```shell
     mvn spring-boot:run
