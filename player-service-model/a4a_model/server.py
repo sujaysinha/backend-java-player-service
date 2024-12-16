@@ -64,6 +64,8 @@ class TeamFeedbackInput(BaseModel):
     seed_id: str
     member_id: str
     feedback: Literal[-1, 1]   # expect -1 or 1
+    prediction_id: str
+
 
 class TeamFeedbackOutput(BaseModel):
     seed_id: str
@@ -123,6 +125,7 @@ def generate_team(body: TeamGenerateInput) -> TeamGenerateOutput:
 def team_feedback(body: TeamFeedbackInput) -> TeamFeedbackOutput:
     seed_id = body.seed_id
     member_id = body.member_id
+    prediction_id = body.prediction_id
     accepted = True
     if seed_id not in all_players:
         accepted = False
@@ -135,7 +138,8 @@ def team_feedback(body: TeamFeedbackInput) -> TeamFeedbackOutput:
     return TeamFeedbackOutput(
         seed_id=seed_id,
         member_id=member_id,
-        accepted=accepted
+        accepted=accepted,
+        prediction_id=prediction_id or str(uuid.uuid4()),
     )
 
 
