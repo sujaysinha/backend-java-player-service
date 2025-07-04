@@ -1,9 +1,11 @@
 package com.app.playerservicejava.controller;
 
 import com.app.playerservicejava.model.Player;
+import com.app.playerservicejava.model.PlayerDto;
 import com.app.playerservicejava.model.Players;
 import com.app.playerservicejava.service.PlayerService;
 import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,10 +27,23 @@ public class PlayerController {
         return ok(players);
     }
 
+    @PostMapping
+    public ResponseEntity<String> addPLayer(@Valid PlayerDto player) //@Valid tag to check for the non null fields in the DTO
+    {
+        if(1 ==1)
+        {
+            throw  new RuntimeException(); //Using this to test the exception handling by the global exception handler, i.e // PlayerControllerAdvice.java
+        }
+        return  ok(player.getFirstName());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Player> getPlayerById(@PathVariable("id") String id) {
         Optional<Player> player = playerService.getPlayerById(id);
-
+        if(1 ==1)
+        {
+            throw  new RuntimeException(); //Using this to test the exception handling by the global exception handler, i.e // PlayerControllerAdvice.java
+        }
         if (player.isPresent()) {
             return new ResponseEntity<>(player.get(), HttpStatus.OK);
         } else {
