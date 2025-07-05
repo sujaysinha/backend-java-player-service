@@ -1,30 +1,35 @@
 package com.app.playerservicejava.controller;
 
+import com.app.playerservicejava.Exceptions.DAOException;
 import com.app.playerservicejava.model.Player;
+import com.app.playerservicejava.model.PlayerCreateDTO;
 import com.app.playerservicejava.model.PlayerDto;
 import com.app.playerservicejava.model.Players;
 import com.app.playerservicejava.service.PlayerService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.BadRequestException;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Response;
 import java.util.Optional;
 
-import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping(value = "v1/players", produces = { MediaType.APPLICATION_JSON_VALUE })
-public class PlayerController {
+public class PlayerController extends BaseResource{ //Note that this class extends BaseResource.java, which has the ok, badRequest and serverError methods
     @Resource
     private PlayerService playerService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Players> getPlayers() {
         Players players = playerService.getPlayers();
-        return ok(players);
+        return ResponseEntity.ok(players);
     }
 
     @PostMapping
@@ -34,7 +39,7 @@ public class PlayerController {
         {
             throw  new RuntimeException(); //Using this to test the exception handling by the global exception handler, i.e // PlayerControllerAdvice.java
         }
-        return  ok(player.getFirstName());
+        return  ResponseEntity.ok(player.getFirstName());
     }
 
     @PutMapping("/{id}")
@@ -50,6 +55,9 @@ public class PlayerController {
         boolean updateResult = playerService.updatePlayer(id, existingPlayer.get(), player);
         return new ResponseEntity<>(player.getFirstName(), HttpStatus.OK);
     }
+    //Note @PathParam is JAX-RS annotation, not Spring MVC. Use @PathVariable instead
+    //@PathVariable is used to extract values from the URI template, while @QueryParam is used to extract query parameters from the URL.
+    //@PathVariable comes from Spring MVC
 
     @GetMapping("/{id}")
     public ResponseEntity<Player> getPlayerById(@PathVariable("id") String id) {
@@ -62,6 +70,22 @@ public class PlayerController {
             return new ResponseEntity<>(player.get(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping("/tester/{id}")
+    public Response getPlayerTest(@QueryParam("value") String value, @NotNull @PathVariable("id") String id, @RequestBody PlayerCreateDTO playerCreateDTO){
+        try {
+            if(value==null){
+                throw new BadRequestException("");
+            }
+            Optional<Player> player = playerService.getPlayerById(id);
+            return ok(player);
+        } catch (BadRequestException e){
+            return badRequest(e);
+        }
+        catch (Exception e){
+            throw new RuntimeException("");
         }
     }
 }
