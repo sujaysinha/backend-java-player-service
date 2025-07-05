@@ -5,9 +5,9 @@ import lombok.*;
 @Setter
 @Getter
 public class PlayerDto {
-    @NotNull(message = "Player name cannot be null")
+    @NotNull(message = "Id cannot be null")
+    private String playerId;
     private String firstName;
-    @NotNull
     private String lastName;
-
+    private String birthYear;
 }

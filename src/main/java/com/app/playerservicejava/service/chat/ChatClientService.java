@@ -63,4 +63,8 @@ public class ChatClientService {
         return response.getResponse();
     }
 
+    public OllamaAPI getOllamaAPI() {
+        return this.ollamaAPI;
+    }
+
 }

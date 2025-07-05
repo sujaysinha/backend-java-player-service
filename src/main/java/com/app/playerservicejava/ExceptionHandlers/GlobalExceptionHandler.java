@@ -18,6 +18,7 @@ public class GlobalExceptionHandler {
     // Method to handle RunTimeException
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
+        ex.printStackTrace();
         // Return a custom error message with HTTP 400 status
         return new ResponseEntity<>("Error: " + "Runtime Exception Occurred", HttpStatus.BAD_REQUEST);
     }
