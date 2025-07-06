@@ -78,7 +78,14 @@ private final Logger logger= LoggerFactory.getLogger(OllammaService.class);
         String systemPrompt = "You are an expert in selecting the most qualified players for upcoming tournaments. " +
                 "Consider player demographics and match statistics to provide the best recommendations."+"Players: " + playerDetails;
 
-
+        //Another Sample Prompt for this
+        /*
+         *        PromptBuilder promptBuilder = new PromptBuilder()
+                .addLine("You are an expert in selecting the most qualified players for upcoming tournaments. ").addSeparator()
+                .addLine("Consider player demographics and match statistics to provide the best recommendations.").addSeparator()
+                .addLine("Please give me just the list of players from the given below data "+playerDetails).addSeparator()
+                .addLine("Analyse the data and return a proper structured reasoning for the exact players who are being selected");
+         * */
         // Log the prompts for debugging
         logger.info("System Prompt: {}", systemPrompt);
 

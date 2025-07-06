@@ -42,6 +42,11 @@ public class ChatController {
         List<Model> models = chatClientService.listModels();
         return ResponseEntity.ok(models);
     }
+    //Another code way of generating nickname using System and User prompt
+    //https://github.com/Intuit-A4A/backend-java-player-service/compare/main...bhuva-v:backend-java-player-service:main
+
+    //Another way to generate nickname with some JSON format given, have not run this before but can try out
+    // https://github.com/Intuit-A4A/backend-java-player-service/compare/main...shreya-k:backend-java-player-service:main
     @PostMapping("/generateNickname")
     public ResponseEntity<Map<String, String>> generateNickname(@RequestParam String country,@RequestParam String playerName) {
         try {
